@@ -23,6 +23,7 @@ function Root(props: RootInterface) {
   const img_array = [img_style_1,img_style_2,img_style_3,img_style_4]
   const label_array = ["Cutting","Shaving","Hairwash","PlaceHolder"]
   const price_array = [120,30,100,1000]
+  const title_array = ["haircut_1","haircut_2","haircut_3","haircut_4"]
   const {cartItems, setCartItems} = props
 
 
@@ -34,10 +35,14 @@ function Root(props: RootInterface) {
 
   return (
   <>
+  {title_array.map((item:any) => {
+    <>
+    <Content title = {item} img_files = {img_array} img_labels = {label_array} price = {price_array}  setCartItems={handlerfunction} />
+    </>
+  }
+  )
 
-  <div>
-    <Content title = "Haircuts" img_files = {img_array} img_labels = {label_array} price = {price_array}  setCartItems={handlerfunction} />
-  </div>
+  } 
  
 
     
