@@ -7,15 +7,16 @@ import img_style_2 from "./components/Shaving.jpg"
 import img_style_3 from "./components/headwash.jpg"
 import img_style_4 from "./components/Style_1.jpg"
 import {
-  Routes, Route, Outlet, BrowserRouter
+  Routes, Route, Outlet, BrowserRouter,
+  useNavigate
 } from "react-router-dom";
 import { useState } from "react"
 
 interface RootInterface {
   cartItems: {
-    [itemName: string]: [number, number]; // itemName: [itemQuantity, Price]
+    [itemName: string]: [number, number]; 
   };
-  setCartItems: (updater: (prevCart: RootInterface["cartItems"]) => RootInterface["cartItems"]) => void; // Function type for updating cart items
+  setCartItems: (updater: (prevCart: RootInterface["cartItems"]) => RootInterface["cartItems"]) => void; 
 }
 
 
@@ -23,8 +24,9 @@ function Root(props: RootInterface) {
   const img_array = [img_style_1,img_style_2,img_style_3,img_style_4]
   const label_array = ["Cutting","Shaving","Hairwash","PlaceHolder"]
   const price_array = [120,30,100,1000]
-  const title_array = ["haircut_1","haircut_2","haircut_3","haircut_4"]
+  const title_array = ["Haircuts","Shavings","Massages","Hairwash"]
   const {cartItems, setCartItems} = props
+  const navigate = useNavigate()
 
 
 
@@ -34,20 +36,38 @@ function Root(props: RootInterface) {
   }))
 
   return (
-  <>
-  {title_array.map((item:any) => {
-    <>
-    <Content title = {item} img_files = {img_array} img_labels = {label_array} price = {price_array}  setCartItems={handlerfunction} />
-    </>
-  }
-  )
+    
+    <div className="flex flex-col items-center p-3">
+    {title_array.map((item: any,index:number) => ( 
 
-  } 
+      <div className = "m-3">
+      <Content 
+        key={item} 
+        title={item} 
+        img_files={img_array} 
+        img_labels={label_array} 
+        price={price_array}  
+        setCartItems={handlerfunction} />
+        </div>
+
+
+      
+      
+    ))}
+  
+  <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded m-2 w-44" onClick={() => navigate('/checkout')}>Proceed</button>
+  
+  </div>
+ 
+  
+ 
+
+  
  
 
     
 
- </>
+
 
 
   )
