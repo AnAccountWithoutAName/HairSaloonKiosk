@@ -1,6 +1,11 @@
 import React from 'react'
 import Card from './items'
 import {useNavigate} from "react-router-dom"
+import { useState } from 'react'
+import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
+import { FiArrowRight, FiArrowLeft } from 'react-icons/fi';
+
+
 
 interface ContentProps {
   title: string;
@@ -10,19 +15,51 @@ interface ContentProps {
   setCartItems: (item: { item: string; quantity: number; price: number }) => void;
 }
 
+
 const Content = (props: ContentProps) => {
 const {title , img_files, img_labels, setCartItems,price} = props
+const [count, setCount] = useState(0)
+const size = img_labels.length
+
+
+const onclickhandlerforward  = (event:any) => (
+
+  setCount((prevCount) => (prevCount + 1))
+
+)
+const onclickhandlerbackward  = (event:any) => (
+
+  setCount((prevCount) => (prevCount - 1))
+
+)
+
 
   
   return (
     <div className='flex flex-col items-center justify-between'>
     <h1 className='text-4xl font-bold mb-2'>{title}</h1>
     <div className="flex flex-row">
-      <Card imgsrc = {img_files[0]} label = {img_labels[0]} setCartItems = {setCartItems} price = {price[0]} ></Card>
-      <Card imgsrc = {img_files[1]} label = {img_labels[1]} setCartItems = {setCartItems} price = {price[1]}></Card>
-      <Card imgsrc = {img_files[2]} label = {img_labels[2]} setCartItems = {setCartItems} price = {price[2]}></Card>
-      <Card imgsrc = {img_files[3]} label = {img_labels[3]} setCartItems = {setCartItems} price = {price[3]} ></Card>
+    <div className = "flex flex-col items-center justify-center">  
+    <button onClick={onclickhandlerbackward} disabled = {!(count > 0)} >
+    <IoIosArrowBack size = "5em" />
+    </button >
     </div>
+      {
+
+        img_labels.map((item: string,index: number) =>
+        ((index >= count && index < count + 4)? <Card imgsrc = {img_files[index]} label= {item} price = {price[index]} setCartItems={setCartItems} /> : <></> )
+      )
+
+        
+      }
+ 
+    <div className = "flex flex-col items-center justify-center">  
+    <button onClick={onclickhandlerforward} disabled = {!(count + 4 < size)} >
+    <IoIosArrowForward size = "5em" />
+    </button >
+    </div>
+    </div>
+
     </div>
   )
 }
