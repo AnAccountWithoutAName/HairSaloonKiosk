@@ -2,15 +2,17 @@
 import Navbar from "./components/navbar"
 import  Content  from "./components/content"
 import Cart from "./components/cart"
-import img_style_1 from "./components/Style_1.jpg"
-import img_style_2 from "./components/Shaving.jpg"
-import img_style_3 from "./components/headwash.jpg"
-import img_style_4 from "./components/Style_1.jpg"
+import img_spa_1 from "./assets/Spa_Images/spa_1.jpg"
+import img_spa_2 from "./assets/Spa_Images/spa_2.jpg"
+import img_spa_3 from "./assets/Spa_Images/spa_3.jpg"
+import img_spa_4 from "./assets/Spa_Images/spa_4.jpg"
+import img_spa_5 from "./assets/Spa_Images/spa_5.jpg"
 import {
   Routes, Route, Outlet, BrowserRouter,
   useNavigate
 } from "react-router-dom";
 import { useState } from "react"
+
 
 interface RootInterface {
   cartItems: {
@@ -21,12 +23,21 @@ interface RootInterface {
 
 
 function Root(props: RootInterface) {
-  const img_array = [img_style_1,img_style_2,img_style_3,img_style_4]
-  const label_array = ["Cutting","Shaving","Hairwash","PlaceHolder"]
-  const price_array = [120,30,100,1000]
-  const title_array = ["Haircuts","Shavings","Massages","Hairwash"]
+  const img_array = [[img_spa_1,img_spa_2,img_spa_3,img_spa_4,img_spa_5],[]]
+  const label_array = [["Classic Hair Spa",
+    "Mositurising Hair Spa",
+    "Color Shave Hair Spa",
+    "Frizz Ease Hair Spa",
+    "Rep n Rejuvenate Hair Spa"]]
+  const price_array = [[600,600,700,800,800]]
+  const title_array = ["Spa Services","Hair Colouring Services","Haircut Services"]
   const {cartItems, setCartItems} = props
   const navigate = useNavigate()
+
+
+
+      
+
 
 
 
@@ -44,9 +55,9 @@ function Root(props: RootInterface) {
       <Content 
         key={item} 
         title={item} 
-        img_files={img_array} 
-        img_labels={label_array} 
-        price={price_array}  
+        img_files={img_array[0]} 
+        img_labels={label_array[0]} 
+        price={price_array[0]}  
         setCartItems={handlerfunction} />
         </div>
 
