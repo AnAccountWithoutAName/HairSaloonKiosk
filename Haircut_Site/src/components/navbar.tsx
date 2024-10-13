@@ -8,7 +8,7 @@ const Navbar = () => {
             <h1 className='text-3xl font-bold font-serif mx-3 my-6'>Salon Recommendation App</h1>
             <ul className = "flex justify-between items-center ">
                 <li className='p-4 text-xl'><Link>Home</Link></li>
-                <li className='p-4 text-xl'><Link>Services</Link></li>
+                <li className='p-4 text-xl'><Link to="/">Services</Link></li>
                 <li className='p-4 text-xl'><Link>About</Link></li>
                 <li className='p-4 text-xl'><Link>Contact Us</Link></li>
                 

@@ -48,6 +48,8 @@ const Cart = (props:any) => {
 
 
         </div>
+
+        <h1 className="text-2xl font-bold">Customers Also Viewed: </h1>
         
 
 
