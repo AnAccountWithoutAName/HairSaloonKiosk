@@ -45,7 +45,7 @@ function Root(props: RootInterface) {
     "Frizz Ease Hair Spa",
     "Rep n Rejuvenate Hair Spa"],["Hair Cut","Shave","Trim","Kids Cut","Beard Design"],["Basic Colour","Ammonia-Free Colour","Fashion Colour","Creative Colour","Fancy Colour"]]
   const price_array = [[600,600,700,800,800],[170,80,100,100,200],[800,1000,1500,2200,2000]]
-  const title_array = ["Spa Services","Hair Colouring Services","Haircut Services"]
+  const title_array = ["Spa Services","Haircut Services","Hair Colouring Services"]
   const {cartItems, setCartItems} = props
   const navigate = useNavigate()
 
