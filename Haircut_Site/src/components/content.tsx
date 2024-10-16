@@ -12,12 +12,15 @@ interface ContentProps {
   img_files: string[];
   img_labels: string[];
   price: number[];
+  cartItems: {
+    [itemName: string]: [number, number]; 
+  };
   setCartItems: (item: { item: string; quantity: number; price: number }) => void;
 }
 
 
 const Content = (props: ContentProps) => {
-const {title , img_files, img_labels, setCartItems,price} = props
+const {title , img_files, img_labels, setCartItems,price, cartItems} = props
 const [count, setCount] = useState(0)
 const size = img_labels.length
 
@@ -47,7 +50,7 @@ const onclickhandlerbackward  = (event:any) => (
       {
 
         img_labels.map((item: string,index: number) =>
-        ((index >= count && index < count + 4)? <Card imgsrc = {img_files[index]} label= {item} price = {price[index]} setCartItems={setCartItems} /> : <></> )
+        ((index >= count && index < count + 4)? <Card imgsrc = {img_files[index]} label= {item} price = {price[index]} setCartItems={setCartItems} cartItems={cartItems} /> : <></> )
       )
 
         

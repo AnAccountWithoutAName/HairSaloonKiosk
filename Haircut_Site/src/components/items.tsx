@@ -5,15 +5,18 @@ interface CardProps {
   label: string;
   price: number
   setCartItems: (item: { item: string; quantity: number; price:number }) => void;
+  cartItems: {
+    [itemName: string]: [number, number]; 
+  };
 }
 
 const Card = (props: CardProps) => {
 
 
 
-  const {imgsrc,label,setCartItems,price} = props
+  const {imgsrc,label,setCartItems,price,cartItems} = props
 
-  const [active, setActive] = useState(true)
+  const [active, setActive] = useState(label in cartItems && cartItems[label][1] != 0 ? false : true  )
 
 
 
