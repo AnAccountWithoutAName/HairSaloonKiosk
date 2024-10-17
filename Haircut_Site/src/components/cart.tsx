@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react"
 import React from 'react'
 
+import { useNavigate} from "react-router-dom";
 
 const Cart = (props:any) => {
   const {cartItems} = props
@@ -16,7 +17,7 @@ const Cart = (props:any) => {
   }, [cartItems]);
 
 
- 
+  const navigate = useNavigate()
 
 
   return (
@@ -50,8 +51,9 @@ const Cart = (props:any) => {
         </div>
 
         <h1 className="text-2xl font-bold">Customers Also Viewed: </h1>
-        
 
+        
+        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded m-2 w-44" onClick={() => navigate('/services')}>Add More Items</button>
 
 
 
