@@ -1,0 +1,33 @@
+import json
+services = [
+    {
+        "name": "Classic Hair Spa",
+        "cost": 600,
+        "file_path": "assets/Spa_Images/spa_1.jpg"
+    },
+    {
+        "name": "Moisturizing Hair Spa",
+        "cost": 600,
+        "file_path": "assets/Spa_Images/spa_2.jpg"
+    },
+    {
+        "name": "Color Shave Hair Spa",
+        "cost": 700,
+        "file_path": "assets/Spa_Images/spa_3.jpg"
+    },
+    {
+        "name": "Hair Cut",
+        "cost": 170,
+        "file_path": "assets/Haircut_Images/haircut_1.jpeg"
+    },
+    # Add additional services as needed
+]
+
+# Define the output file path
+output_file = 'services_data.json'
+
+# Write the list of services to a JSON file
+with open(output_file, 'w') as json_file:
+    json.dump(services, json_file, indent=4)
+
+print(f"JSON file '{output_file}' created successfully.")
