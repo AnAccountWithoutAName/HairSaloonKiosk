@@ -1,33 +1,66 @@
-import json
-services = [
-    {
-        "name": "Classic Hair Spa",
-        "cost": 600,
-        "file_path": "assets/Spa_Images/spa_1.jpg"
-    },
-    {
-        "name": "Moisturizing Hair Spa",
-        "cost": 600,
-        "file_path": "assets/Spa_Images/spa_2.jpg"
-    },
-    {
-        "name": "Color Shave Hair Spa",
-        "cost": 700,
-        "file_path": "assets/Spa_Images/spa_3.jpg"
-    },
-    {
-        "name": "Hair Cut",
-        "cost": 170,
-        "file_path": "assets/Haircut_Images/haircut_1.jpeg"
-    },
-    # Add additional services as needed
-]
-
-# Define the output file path
-output_file = 'services_data.json'
-
-# Write the list of services to a JSON file
-with open(output_file, 'w') as json_file:
-    json.dump(services, json_file, indent=4)
-
-print(f"JSON file '{output_file}' created successfully.")
+{
+    "male_categories": [
+        {
+            "title": "Spa Services",
+            "services": [
+                {"title": "Classic Hair Spa", "price": 600, "file_path": "./assets/Spa_Images/spa_1.jpg"},
+                {"title": "Moisturising Hair Spa", "price": 600, "file_path": "./assets/Spa_Images/spa_2.jpg"},
+                {"title": "Color Shave Hair Spa", "price": 700, "file_path": "./assets/Spa_Images/spa_3.jpg"},
+                {"title": "Frizz Ease Hair Spa", "price": 800, "file_path": "./assets/Spa_Images/spa_4.jpg"},
+                {"title": "Rep n Rejuvenate Hair Spa", "price": 800, "file_path": "./assets/Spa_Images/spa_5.jpg"}
+            ]
+        },
+        {
+            "title": "Haircut Services",
+            "services": [
+                {"title": "Hair Cut", "price": 170, "file_path": "./assets/Haircut_Images/haircut_1.jpeg"},
+                {"title": "Shave", "price": 80, "file_path": "./assets/Haircut_Images/haircut_2.jpeg"},
+                {"title": "Trim", "price": 100, "file_path": "./assets/Haircut_Images/haircut_3.jpeg"},
+                {"title": "Kids Cut", "price": 100, "file_path": "./assets/Haircut_Images/haircut_4.jpeg"},
+                {"title": "Beard Design", "price": 200, "file_path": "./assets/Haircut_Images/haircut_5.jpeg"}
+            ]
+        },
+        {
+            "title": "Hair Colouring Services",
+            "services": [
+                {"title": "Basic Colour", "price": 800, "file_path": "./assets/Coloring_Images/coloring_1.jpeg"},
+                {"title": "Ammonia-Free Colour", "price": 1000, "file_path": "./assets/Coloring_Images/coloring_2.jpeg"},
+                {"title": "Fashion Colour", "price": 1500, "file_path": "./assets/Coloring_Images/coloring_3.jpeg"},
+                {"title": "Creative Colour", "price": 2200, "file_path": "./assets/Coloring_Images/coloring_4.jpeg"},
+                {"title": "Fancy Colour", "price": 2000, "file_path": "./assets/Coloring_Images/coloring_5.jpeg"}
+            ]
+        }
+    ],
+    "female_categories":[
+        {
+            "title": "Haircut, Blowing and Drying",
+            "services": [
+                {"title": "Dream Curls", "price": 700, "file_path": "./assets/Female_Haircut_Images/Curls.jfif.jpg"},
+                {"title": "Straight Finish", "price": 600, "file_path": "./assets/Female_Haircut_Images/Ironing.jfif.jpg"},
+                {"title": "Shampoo & Blast Dry", "price": 250, "file_path": "./assets/Female_Haircut_Images/ShampooDry.jfif.jpg"},
+                {"title": "Splitend Cuts", "price": 600, "file_path": "./assets/Female_Haircut_Images/SplitendsCut.jfif.jpg"},
+                {"title": "Hair Trimming", "price": 300, "file_path": "./assets/Female_Haircut_Images/Trim.jfif.jpg"}
+            ]
+        },
+        {
+            "title": "Facial Services",
+            "services": [
+                {"title": "Acne Cleanup", "price": 700, "file_path": "./assets/Facial_Services/AcneCLeanup.jfif.jpg"},
+                {"title": "Basic Cleanup", "price": 600, "file_path": "./assets/Facial_Services/BasicFacial.jfif.jpg"},
+                {"title": "Fairness Facial", "price": 1500, "file_path": "./assets/Facial_Services/FairnessFacial.jfif.jpg"},
+                {"title": "Gold Facial", "price": 1200, "file_path": "./assets/Facial_Services/GoldFacial.jfif.jpg"},
+                {"title": "Under-Eye Rejuvenation", "price": 600, "file_path": "./assets/Facial_Services/UnderEyeRejuv.jfif.jpg"}
+            ]
+        },
+        {
+            "title": "Bleaching Services",
+            "services": [
+                {"title": "Neck Bleach", "price": 300, "file_path": "./assets/Bleach_Services/FaceNeck.jfif.jpg"},
+                {"title": "Full-Body Bleach", "price": 2000, "file_path": "./assets/Bleach_Services/FUlbody.jfif.jpg"},
+                {"title": "Feet Bleach", "price": 130, "file_path": "./assets/Bleach_Services/Feet.jfif.jpg"},
+                {"title": "Full-Arm Bleach", "price": 400, "file_path": "./assets/Bleach_Services/FullArms.jfif.jpg"},
+                {"title": "Upper-Lip Bleach", "price": 50, "file_path": "./assets/Bleach_Services/Upperlip.jfif.jpg"}
+            ]
+        }
+    ]
+}
