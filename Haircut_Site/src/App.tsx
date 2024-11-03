@@ -98,6 +98,12 @@ function Dashboard() {
 
 function App() {
   const [cartItems, setCartItems] = useState({});
+  const handlerfunction = (e: { item: string; quantity: number; price: number }) =>
+    setCartItems((prevCart) => ({
+      ...prevCart,
+      [e.item]: [e.quantity, e.price],
+    }));
+
 
   return (
     <BrowserRouter>
@@ -105,7 +111,7 @@ function App() {
         <Route path="/" element={<Dashboard />}>
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<Root cartItems={cartItems} setCartItems={setCartItems} />} />
-          <Route path="/checkout" element={<Cart cartItems={cartItems} />} />
+          <Route path="/checkout" element={<Cart cartItems={cartItems} setCartItems={handlerfunction} />} />
         </Route>
       </Routes>
     </BrowserRouter>

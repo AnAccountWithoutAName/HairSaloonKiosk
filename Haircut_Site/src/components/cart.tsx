@@ -90,7 +90,7 @@ const Cart = (props: any) => {
     
     setRecommendedItems(isMixed ? [...selectedMaleServices, ...selectedFemaleServices] : 
       cartCategories.maleCount > 0 ? selectedMaleServices : selectedFemaleServices);
-  }, [cartItems]);
+  }, []);
 
   const getRandomServices = (services: ServiceType[], count: number) => {
     const shuffled = [...services].sort(() => 0.5 - Math.random());
@@ -131,6 +131,7 @@ const Cart = (props: any) => {
             price={item.price}
             setCartItems={setCartItems}
             cartItems={cartItems}
+            showButton = {true}
           />
         ))}
       </div>
