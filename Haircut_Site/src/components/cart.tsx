@@ -3,6 +3,7 @@ import React from 'react';
 import { useNavigate } from "react-router-dom";
 import serviceData from '../Services_data.json';
 import Card from './items'; // Assuming Card is in the same directory
+import axios from 'axios';
 
 interface ServiceType {
   title: string;
@@ -98,6 +99,26 @@ const Cart = (props: any) => {
   };
 
   const navigate = useNavigate();
+  const handleProceed = async () => {
+    const cartData = Object.keys(cartItems).map((item) => ({
+      title: item,
+      quantity: cartItems[item][0],
+      price: cartItems[item][1],
+    }));
+  
+    const total = cartData.reduce((acc, item) => acc + item.quantity * item.price, 0);
+  
+    try {
+      await axios.post('http://localhost:5000/api/cart', {
+        items: cartData,
+        total,
+      });
+      alert('Cart saved successfully!');
+    } catch (error) {
+      console.error('Error saving cart:', error);
+      alert('Failed to save cart. Please try again.');
+    }
+  };
 
   return (
     <div className="flex flex-col items-center w-[90%] h-fit border-2 m-4 border-black gap-8">
@@ -135,15 +156,22 @@ const Cart = (props: any) => {
           />
         ))}
       </div>
-
+      <div className="flex gap-4 m-2">  
       <button
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded m-2 w-44"
         onClick={() => navigate('/services')}
       >
         Add More Items
       </button>
+      <button
+          className="bg-blue-500 hover:bg-blue-500 text-white font-bold py-2 px-4 border border-blue-500 rounded m-2 w-44"
+          onClick={handleProceed}
+        >
+          Proceed
+        </button>
+        </div>
     </div>
   );
+  
 };
-
 export default Cart;
