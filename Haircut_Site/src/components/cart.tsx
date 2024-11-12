@@ -27,7 +27,28 @@ const Cart = (props: any) => {
   const [images, setImages] = useState<{ [key: string]: string }>({});
 
   const imageFiles = import.meta.glob('../assets/**/*.{jpg,jpeg,png,jfif}', { eager: true });
+//Getting recommendations from API
+  const getRecommendationsFromAPI = async () => {
+    try {
+      const response = await axios.post('http://localhost:5000/api/recommendations', {
+        cartItems
+      });
+      if (response.data && response.data.recommendations) {
+        console.log(response.data.recommendations)
+        setRecommendedItems(response.data.recommendations);
+      } else {
+        console.error('No recommendations received from API');
+      }
+    } catch (error) {
+      console.error('Error fetching recommendations:', error);
+    }
+  };
+//Calling Recommendations function.
+  useEffect(() => {
+    getRecommendationsFromAPI();
 
+  }, [cartItems]);
+  
  
 
   useEffect(() => {
